@@ -17,7 +17,7 @@ env:
 
 build:
   pre_ci:
-    - true
+    - echo "true"
 
   pre_ci_boot:
     image_name: kanthchandra/sample_node
@@ -30,7 +30,7 @@ build:
     - ls -al
 
   post_ci:
-    - true
+    - echo "true"
 
   smoke_test:
     - sudo ls /
