@@ -55,14 +55,6 @@ integrations:
       on_start: always
     - integrationName: email
       type: email
-      recipients:
-        - chandrakanth@shippable.com
-        - --last_committer
-        - --last_author
-      branches:
-        only:
-          - master
-      on_success: always
-      on_pull_request: always
-      on_failure: always
-      on_start: always
+      on_success: never
+      on_pull_request: never
+      on_failure: never
