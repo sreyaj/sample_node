@@ -44,7 +44,7 @@ integrations:
   notifications:
     - integrationName: kanthchandra-slack
       type: slack
-      recipients
+      recipients:
         - slacktestck
       branches:
         only:
