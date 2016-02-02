@@ -55,6 +55,9 @@ integrations:
       on_start: always
     - integrationName: email
       type: email
-      on_success: never
-      on_pull_request: never
-      on_failure: never
+      recipients: 
+        - vishal.chandru@gmail.com
+        - --last_committer
+      on_success: always
+      on_pull_request: always
+      on_failure: always
