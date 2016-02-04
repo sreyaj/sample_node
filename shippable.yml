@@ -29,3 +29,8 @@ build:
     
   on_success:
     - echo "The job succeeded!!!!"
+integrations:
+  notifications:
+    - integrationName: 'email'
+      type: 'email'
+      recipients: chandrakanth@shippable.com
