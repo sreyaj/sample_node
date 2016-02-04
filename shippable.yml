@@ -34,3 +34,4 @@ integrations:
     - integrationName: 'email'
       type: 'email'
       recipients: chandrakanth@shippable.com
+      on_start: 'always'
