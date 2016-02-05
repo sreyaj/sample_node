@@ -33,5 +33,7 @@ integrations:
   notifications:
     - integrationName: 'email'
       type: 'email'
-      recipients: chandrakanth@shippable.com
+      recipients: 
+        - chandrakanth@shippable.com
+        - vishal.chandru@gmail.com
       on_start: 'always'
