@@ -20,4 +20,5 @@ build:
 
   post_ci:
     - ls -a
+    - pwd
     - docker build -t kanthchandra/sample_node .
