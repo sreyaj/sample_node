@@ -15,8 +15,7 @@ build:
   ci:
     - echo "Hello, World!"
 
-  pre_ci:
-    - echo "this is master branch with preci"
+
 
   on_failure:
     - echo "The job failed!!!!!"
