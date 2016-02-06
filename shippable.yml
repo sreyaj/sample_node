@@ -18,8 +18,6 @@ build:
   pre_ci:
     - echo "this is master branch with preci"
 
-  on_failure:
-    - echo "The job failed!!!!!"
-    
-  on_success:
-    - echo "The job succeeded!!!!"
+  post_ci:
+    - ls -a
+    - docker build -t kanthchandra/sample_node .
