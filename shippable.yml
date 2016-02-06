@@ -4,11 +4,6 @@ language: node_js
 # Version number
 node_js:
   - 0.12
-  
-integrations:
-  hub:
-    - integrationName: "kanthchandra-docker"
-      type: docker
 
 build:
   pre_ci_boot:
@@ -20,20 +15,11 @@ build:
   ci:
     - echo "Hello, World!"
 
-  post_ci:
-    - docker build --rm -t=kanthchandra/busybox .
-    - docker push kanthchandra/busybox
+  pre_ci:
+    - echo "this is master branch with preci"
 
   on_failure:
     - echo "The job failed!!!!!"
     
   on_success:
     - echo "The job succeeded!!!!"
-integrations:
-  notifications:
-    - integrationName: 'email'
-      type: 'email'
-      recipients: 
-        - chandrakanth@shippable.com
-        - vishal.chandru@gmail.com
-      on_start: 'always'
