@@ -13,10 +13,7 @@ build:
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
-    - echo "Hello, World!"
-
-
-
+    - echo "Hello, World! this is a branch without preci"
   on_failure:
     - echo "The job failed!!!!!"
     
