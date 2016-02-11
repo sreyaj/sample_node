@@ -7,8 +7,8 @@ node_js:
 
 build:
   pre_ci_boot:
-    image_name: drydock/u14nodall
-    image_tag: prod
+    image_name: kanthchandra/sample_node
+    image_tag: latest
     pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
@@ -21,4 +21,3 @@ build:
   post_ci:
     - ls -a
     - pwd
-    - docker build -t kanthchandra/sample_node .
