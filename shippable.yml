@@ -22,3 +22,17 @@ build:
     - ls -a
     - pwd
     - sleep 2m
+    
+  integrations:
+    notifications:
+      - integrationName: "chandrakanth-slack"
+        type: slack
+        recipients:
+          - "@chandrakanth"
+          - "@pranay"
+        branches:
+            only:
+              - master
+        on_success: always
+        on_failure: always
+        on_start: always
