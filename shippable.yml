@@ -38,7 +38,7 @@ after_script:
   
 notifications:  
   irc: 
-    pull_request: true
+    pull_requests: true
     channels:
       - "webchat.freenode.net#test-irc"
 
