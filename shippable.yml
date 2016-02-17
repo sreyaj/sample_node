@@ -30,6 +30,7 @@ before_script:
 # Running the tests with grunt
 script:
   - echo "this is script"
+  - grunt rte
 
 # Tell istanbul to generate a coverage report
 after_script:
