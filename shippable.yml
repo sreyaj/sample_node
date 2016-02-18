@@ -3,36 +3,46 @@ language: node_js
 
 # Version number
 node_js:
-  - 0.12
+  - 0.10.25
+#  - 0.11
 
-build:
-  pre_ci_boot:
-    image_name: kanthchandra/sample_node
-    image_tag: latest
-    pull: true
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+env:
+ - foo=bar
+ - secure: Mh5tOj9dFQvHCuNf64aIjm41zM140m1nj8+xeiJTlowCcf15hUFjofciaJI4V9uOqywxNGIgNYFPIsLpB2PFGKedteYVZ+55S8HGcF1YiTNHKucqnL83dPmwQ+C+F27PUcuckl7dNgniZn6vERBO+OdnJNgPT5eTU99eXm95RsLdcfHED6XoxPbWMcD2cK/+hpyo8odllaOu0D+rcxWWbZnmuf0ebdWaCFuFiBebj1OoPtJESaufoKRGI4NVU3+sm2z9Pl5Jl3wN5pw4YlOTeJ5Gkkk8eLJpU7nUtspwe++13C2DuzZX5z3a/c/CroNr3QgvgHqpGShC08Ycs/uSEg==
+ #- bar=foo
 
-  ci:
-    - echo "Hello, World!"
+# The path for Xunit to output test reports
+env:
+  - XUNIT_FILE=shippable/testresults/result.xml
 
-  pre_ci:
-    - echo "this is master branch with preci"
+install:
+ # - source ~/.nvm/nvm.sh && nvm install 0.12
+  - node --version
+  - npm install
+  - echo $key1
+#  - . installMongo.sh
+#  - cat /etc/mongod.conf
+#  - sudo mongod --smallfiles &
+#  - sleep 15
+#  - mongo --eval 'db.collection.find()'
 
-  post_ci:
-    - ls -a
-    - pwd
-    - sleep 2m
-    
-integrations:
-  notifications:
-    - integrationName: "chandrakanth-slack"
-      type: slack
-      recipients:
-        - "@chandrakanth"
-        - "@pranay"
-      branches:
-          only:
-            - master
-      on_success: always
-      on_failure: always
-      on_start: always
+# Create directories for test and coverage reports
+before_script:
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+
+# Running the tests with grunt
+script:
+  - grunt
+
+# Tell istanbul to generate a coverage report
+after_script:
+  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+
+notifications:
+ irc:
+   pull_requests: true
+   channels:  
+    - "chat.freenode.net#test-irc"
+    - "chat.freenode.net#testing2"
