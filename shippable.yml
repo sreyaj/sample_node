@@ -22,7 +22,12 @@ build:
     - ls -a
     - pwd
     - sleep 2m
-    
+  
+  cache: true
+  
+  cache_dir_list: 
+    - $SHIPPABLE_REPO_DIR
+
 integrations:
   notifications:
     - integrationName: "chandrakanth-slack"
