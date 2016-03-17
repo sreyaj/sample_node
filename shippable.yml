@@ -28,16 +28,3 @@ build:
   cache_dir_list: 
     - $SHIPPABLE_REPO_DIR
 
-integrations:
-  notifications:
-    - integrationName: "chandrakanth-slack"
-      type: slack
-      recipients:
-        - "@chandrakanth"
-        - "@pranay"
-      branches:
-          only:
-            - master
-      on_success: always
-      on_failure: always
-      on_start: always
