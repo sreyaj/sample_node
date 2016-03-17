@@ -19,7 +19,7 @@
   "dependencies": {
     "express": "^4.2.0",
     "nano": "^5.10.0",
-    "should": "^4.0.1"
+    "should": "^4.0.1",
     "lodash": "~3.0.0",
     "util": "~0.10.3",
     "amqp": "~0.2.4",
