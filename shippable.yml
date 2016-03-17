@@ -21,7 +21,7 @@ build:
   post_ci:
     - ls -a
     - pwd
-    - sleep 2m
+    - sleep 10s
   
   cache: true
   
