@@ -22,7 +22,7 @@ build:
     - ls -a
     - pwd
   
-  cache: true
+  cache: false
   
   cache_dir_list: 
     - $SHIPPABLE_BUILD_DIR/node_modules
