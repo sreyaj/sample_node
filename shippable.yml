@@ -25,7 +25,5 @@ build:
   cache: true
   
   cache_dir_list: 
-    - $SHIPPABLE_BUILD_DIR/shippable.yml
-    - $SHIPPABLE_BUILD_DIR/package.json
-    - $SHIPPABLE_BUILD_DIR/node_modules
+    - $SHIPPABLE_BUILD_DIR
 
