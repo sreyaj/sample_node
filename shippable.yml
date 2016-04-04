@@ -20,14 +20,14 @@ build:
     - ./installMongo.sh
     - sudo mongod --smallfiles &
     - sleep 60s
-    - mongo --eval 'db.collection.find()'
+    - sudo mongo --eval 'db.collection.find()'
     - ls -a
   
   on_success:
-    - mongo test --eval "db.dropDatabase()"
+    - sudo mongo test --eval "db.dropDatabase()"
 
   on_failure:
-    - mongo test --eval "db.dropDatabase()"
+    - sudo mongo test --eval "db.dropDatabase()"
 
   cache: true
   
