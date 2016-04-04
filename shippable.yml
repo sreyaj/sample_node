@@ -12,7 +12,7 @@ build:
     pull: true
     options: '--privileged=true --net=bridge'
   
-  pre_ci:
+  ci:
     - source ~/.nvm/nvm.sh && nvm install $SHIPPABLE_NODE_VERSION
     - shippable_retry npm install
     - node --version
@@ -21,8 +21,6 @@ build:
     - sudo mongod --smallfiles &
     - sleep 15
     - mongo --eval 'db.collection.find()'
-  
-  ci:
     - ls -a
   
   on_success:
