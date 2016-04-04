@@ -19,7 +19,7 @@ build:
     - sudo npm install -g istanbul
     - ./installMongo.sh
     - sudo mongod --smallfiles &
-    - sleep 15
+    - sleep 60s
     - mongo --eval 'db.collection.find()'
     - ls -a
   
