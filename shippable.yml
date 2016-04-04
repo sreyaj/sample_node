@@ -5,9 +5,13 @@ language: node_js
 node_js:
   - 0.12
 
+services:
+  - mongodb
+  - memcached
+
 build:
   pre_ci_boot:
-    image_name: drydock/u14nod
+    image_name: drydock/u14nodall
     image_tag: prod
     pull: true
     options: '--privileged=true --net=bridge'
@@ -17,9 +21,6 @@ build:
     - shippable_retry npm install
     - node --version
     - sudo npm install -g istanbul
-    - ./installMongo.sh
-    - sudo mongod --smallfiles &
-    - sleep 60s
     - sudo mongo --eval 'db.collection.find()'
     - ls -a
   
