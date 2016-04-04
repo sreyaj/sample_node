@@ -50,13 +50,13 @@ build:
 integrations:
   notifications:
     - integrationName: email
-    type: email
-    recipients:
-      - chandrakanth@shippable.com
-    on_start: never
-    on_success: change
-    on_failure: never
-    on_pull_request: always
-    branches:
-      only:
-        - master
+      type: email
+      recipients:
+        - chandrakanth@shippable.com
+      on_start: never
+      on_success: change
+      on_failure: never
+      on_pull_request: always
+      branches:
+        only:
+          - master
