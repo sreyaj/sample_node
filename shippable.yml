@@ -7,21 +7,30 @@ node_js:
 
 build:
   pre_ci_boot:
-    image_name: kanthchandra/sample_node
-    image_tag: latest
+    image_name: drydock/u14nod
+    image_tag: prod
     pull: true
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
-
-  ci:
-    - npm install
-
-  pre_ci:
-    - echo "this is master branch with preci"
-
-  post_ci:
-    - ls -a
-    - pwd
+    options: '--privileged=true --net=bridge'
   
+  pre_ci:
+    - source ~/.nvm/nvm.sh && nvm install $SHIPPABLE_NODE_VERSION
+    - shippable_retry npm install
+    - node --version
+    - sudo npm install -g istanbul
+    - ./installMongo.sh
+    - sudo mongod --smallfiles &
+    - sleep 15
+    - mongo --eval 'db.collection.find()'
+  
+  ci:
+    - ls -a
+  
+  on_success:
+    - mongo test --eval "db.dropDatabase()"
+
+  on_failure:
+    - mongo test --eval "db.dropDatabase()"
+
   cache: true
   
   cache_dir_list: 
