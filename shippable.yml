@@ -1,37 +1,30 @@
-# Language setting
 language: node_js
 
 # Version number
 node_js:
-  - 0.12
+  - 0.10
+ # - 0.12
+ # - 4.2.3
+ # - iojs-v1
+  #- iojs-v2
+  #- iojs-v3
+  #- 5.0
 
-services:
-  - mongodb
-  - memcached
+env:
+  global:
+    - FOO=Bar
+    - BAR=Foo
 
+#in orderfail for 4.2.3 version
+matrix:
+  include:
+    - node_js: 4.2.3
+      env: tt@!=rr
+  allow_failures:
+    - node_js: 4.2.3
+      
 build:
-  pre_ci_boot:
-    image_name: drydock/u14nodall
-    image_tag: prod
-    pull: true
-    options: '--privileged=true --net=bridge'
-  
   ci:
-    - source ~/.nvm/nvm.sh && nvm install $SHIPPABLE_NODE_VERSION
-    - shippable_retry npm install
     - node --version
-    - sudo npm install -g istanbul
-    - sudo mongo --eval 'db.collection.find()'
-    - ls -a
-  
-  on_success:
-    - sudo mongo test --eval "db.dropDatabase()"
-
-  on_failure:
-    - sudo mongo test --eval "db.dropDatabase()"
-
-  cache: true
-  
-  cache_dir_list: 
-    - $SHIPPABLE_BUILD_DIR/node_modules
-
+   # - sleep 15m
+    #- cs ps
