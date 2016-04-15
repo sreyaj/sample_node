@@ -18,8 +18,8 @@ env:
 #in orderfail for 4.2.3 version
 matrix:
   include:
-    - env: tt@!=rr
     - node_js: 4.2.3
+      env: tt@!=rr
   allow_failures:
     - node_js: 4.2.3
       
