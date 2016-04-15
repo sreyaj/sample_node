@@ -19,12 +19,12 @@ env:
 matrix:
   include:
     - node_js: 4.2.3
-      env: tt@!=rr
+      env: TIMEOUT=12m
   allow_failures:
     - node_js: 4.2.3
       
 build:
   ci:
     - node --version
-    - sleep 15m
+    - sleep $TIMEOUT || sleep 1s
     #- cs ps
