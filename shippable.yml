@@ -26,5 +26,5 @@ matrix:
 build:
   ci:
     - node --version
-    - sleep 15m
+    - sleep 10s
     #- cs ps
