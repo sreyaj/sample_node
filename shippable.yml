@@ -16,7 +16,7 @@ build:
   
   ci:
     - echo "Hello, World! this is a branch without preci"
-    - sleep 20m
+    - sleep 5m
   on_failure:
     - echo "The job failed!!!!!"
     
