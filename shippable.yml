@@ -13,7 +13,7 @@ build:
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
   
   pre_ci: 
-    - docker run --rm kanthchandra/sample_node
+    - docker run -d --rm kanthchandra/sample_node
   ci:
     - echo "Hello, World! this is a branch without preci"
   
