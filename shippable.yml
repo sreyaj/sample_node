@@ -12,7 +12,6 @@ build:
     pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
   
-  cache: true
   
   ci:
     - echo "Hello, World! this is a branch without preci"
